@@ -4,8 +4,6 @@ This function returns a simple result of [Deployments - Validate](https://learn.
 
 ## Usage
 
-### Simple way
-
 ```powershell
 Import-module .\Test-AzDenyPolicy.ps1
 Test-AzDenyPolicy -resourceBicepPath .\test\deny_vnet.bicep -resourceGroupName rg-policy-test -subscriptionId ((Get-AzContext).Subscription.Id) | fl *
@@ -37,5 +35,4 @@ Describing Test Azure Policy Deny
     at <ScriptBlock>, C:\Users\UserName\source\repos\Test-AzDenyPolicy\ValidateAzPolicy.test.ps1:24
 Tests completed in 6s
 Tests Passed: 2, Failed: 1, Skipped: 0, Inconclusive: 0, NotRun: 0
-PS C:\Users\UserName\source\repos\Test-AzDenyPolicy> 
 ```
