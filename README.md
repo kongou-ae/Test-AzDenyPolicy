@@ -16,23 +16,21 @@ Policies   : {deny-vnet-creation, deny-vnet-creation2}
 You can use this function with Pester. The sample is [ValidateAzPolicy.test.ps1](./ValidateAzPolicy.test.ps1)
 
 ```powershell
-Invoke-pester .\ValidateAzPolicy.test.ps1 -Output Detailed                                             
-Pester v5.7.1                                  
+invoke-pester .\ValidateAzPolicy.test.ps1 -Output Detailed
+Pester v5.7.1
 
 Starting discovery in 1 files.
-Discovery found 3 tests in 33ms.
+Discovery found 4 tests in 208ms.
 Running tests.
 
-Running tests from 'C:\Users\UserName\source\repos\Test-AzDenyPolicy\ValidateAzPolicy.test.ps1'
-C:\Users\UserName\source\repos\Test-AzDenyPolicy\test\deny_vnet.bicep(3,13) : Warning no-hardcoded-location: A resource location should not use a hard-coded string or variable value. Please use a parameter value, an expression, or the string 'global'. Found: 'japaneast' [https://aka.ms/bicep/linter/no-hardcoded-location]
-Describing Test Azure Policy Deny
- Context Deny VNet Creation
-   [+] return code is 400 7ms (2ms|5ms)
-   [+] error message contains policy violation 3ms (2ms|1ms)
-   [-] policy name is deny-vnet-creation 9ms (7ms|1ms)
-    Expected 'deny-vnet-creati' to be found in collection @('deny-vnet-creation', 'deny-vnet-creation2'), but it was not found.
-    at $result.Policies | Should -Contain "deny-vnet-creati", C:\Users\UserName\source\repos\Test-AzDenyPolicy\ValidateAzPolicy.test.ps1:24
-    at <ScriptBlock>, C:\Users\UserName\source\repos\Test-AzDenyPolicy\ValidateAzPolicy.test.ps1:24
-Tests completed in 6s
-Tests Passed: 2, Failed: 1, Skipped: 0, Inconclusive: 0, NotRun: 0
+Running tests from 'C:\Users\username\source\repos\Test-AzDenyPolicy\ValidateAzPolicy.test.ps1'
+Describing Test GPU VM Creation
+ Context Deny NV8as VM Creation
+   [+] return code is 400 40ms (35ms|5ms)
+   [+] error message contains policy violation 43ms (41ms|2ms)
+   [+] policy name is deny-expensive-gpu-vm 35ms (34ms|1ms)
+ Context Allow NV4as VM Creation
+   [+] return code is 200 45ms (42ms|3ms)
+Tests completed in 14.03s
+Tests Passed: 4, Failed: 0, Skipped: 0, Inconclusive: 0, NotRun: 0
 ```
