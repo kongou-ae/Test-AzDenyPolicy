@@ -16,7 +16,7 @@ Policies   : {deny-vnet-creation, deny-vnet-creation2}
 You can use this function with Pester. The sample is [ValidateAzPolicy.test.ps1](./ValidateAzPolicy.test.ps1)
 
 ```powershell
- Invoke-pester .\ValidateAzPolicy.test.ps1 -Output Detailed                                             
+Invoke-pester .\ValidateAzPolicy.test.ps1 -Output Detailed                                             
 Pester v5.7.1                                  
 
 Starting discovery in 1 files.
