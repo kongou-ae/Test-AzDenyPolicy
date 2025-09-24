@@ -1,4 +1,4 @@
-targetScope = 'managementGroup'
+targetScope = 'subscription'
 
 resource policy 'Microsoft.Authorization/policyDefinitions@2021-06-01' = {
   name: 'deny-expensive-gpu-vm'

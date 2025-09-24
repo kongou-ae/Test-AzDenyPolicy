@@ -30,7 +30,7 @@ function Test-AzDenyPolicy {
         StatusCode = $result.StatusCode
         Message = ($result.Content | Convertfrom-Json).error.message
         Policies = $policies
-        Details = ($result.Content | Convertfrom-Json).error.details
+        Content = $result.Content
     }
     
     return $value
