@@ -21,10 +21,16 @@ function Test-AzDenyPolicy {
 
     $result = Invoke-AzRestMethod -Uri $url -Method Post -Payload $payload
 
+    $policies = new-object System.Collections.Generic.List[string]
+    foreach ($policyDefinitionName in ($result.Content | Convertfrom-Json).error.details.additionalInfo.info.policyDefinitionName) {
+        $policies.Add($policyDefinitionName)
+    }
+    
     $value = [PSCustomObject]@{
         StatusCode = $result.StatusCode
         Message = ($result.Content | Convertfrom-Json).error.message
-        Policies = ($result.Content | Convertfrom-Json).error.details.additionalInfo.info.policyDefinitionName
+        Policies = $policies
+        Details = ($result.Content | Convertfrom-Json).error.details
     }
     
     return $value
